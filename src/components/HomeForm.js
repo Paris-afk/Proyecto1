@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 const HomeForm = () => {
+  const [input, setInput] = useState({
+    depart: "",
+    arrival: "",
+    dateDepart: "",
+    travelType: 1,
+    dateArrival: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setInput((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
+  }
+  console.log(input);
   return (
     <div className="card card-body">
       <form>
         <div className="form-group">
           <input
+            onChange={handleChange}
             type="text"
             name="depart"
             id="depart"
+            value={input.depart}
             placeholder="Ecrivez la place de depart "
             className="form-control"
           />
@@ -16,6 +37,8 @@ const HomeForm = () => {
 
         <div className="form-group">
           <input
+            onChange={handleChange}
+            value={input.arrival}
             type="text"
             name="arrival"
             id="arrival"
@@ -27,6 +50,8 @@ const HomeForm = () => {
         <div className="form-group">
           <label htmlFor="">Depart Date</label>
           <input
+            onChange={handleChange}
+            value={input.dateDepart}
             type="date"
             name="dateDepart"
             id="dateDepart"
@@ -37,6 +62,7 @@ const HomeForm = () => {
 
         <div className="form-group">
           <input
+            onChange={handleChange}
             name="travelType"
             id="travelType"
             className="btn btn-primary"
@@ -48,6 +74,7 @@ const HomeForm = () => {
         {
           <div className="form-group">
             <input
+              onChange={handleChange}
               name="travelType"
               id="travelType"
               className="btn btn-primary"
@@ -61,10 +88,12 @@ const HomeForm = () => {
         <div className="form-group">
           <label htmlFor="">Arrival Date</label>
           <input
+            onChange={handleChange}
             type="date"
             name="dateArrival"
             id="dateArrival"
             className="form-control"
+            value={input.dateArrival}
           />
         </div>
 
