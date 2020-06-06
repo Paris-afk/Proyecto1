@@ -16,29 +16,70 @@ class App extends Component {
     country: "",
     error: null,
     datos: undefined,
-    datosRetour: undefined
+    datosRetour: undefined,
   };
+  // componentDidMount() {
+  //   this.getWeather();
+  // }
 
-  getWeather = async e => {
-    e.preventDefault();
+  componentWillMount() {
+    this.getWeather();
+  }
+  getWeather = async (e) => {
+    console.log(this.props.location.myCustomProps + "valor de entrada");
+    if (e) {
+      e.preventDefault();
+    }
     /*  console.log(e.target.elements) */
-    const {
-      city,
-      country,
-      arrival,
-      depart,
-      dateDepart,
-      travelType,
-      dateArrival
-    } = e.target.elements;
-    const cityValue = arrival.value;
-    /* const countryValue = country.value; */
-    const arrivalValue = arrival.value;
-    const departValue = depart.value;
-    const dateDepartValue = dateDepart.value;
-    const travelTypeValue = travelType.value;
-    const dateArrivalValue = dateArrival.value;
+    if (e) {
+      var {
+        city,
+        country,
+        arrival,
+        depart,
+        dateDepart,
+        travelType,
+        dateArrival,
+      } = e.target.elements;
+    }
 
+    if (!e) {
+      var arrival, depart, dateDepart, travelType, dateArrival;
+    }
+    let cityValue = "";
+    let dateDepartValue = "";
+    let travelTypeValue = "";
+    let dateArrivalValue = "";
+    /* const countryValue = country.value; */
+    let arrivalValue = "";
+    let departValue = "";
+    if (e) {
+      cityValue = arrival.value;
+      dateDepartValue = dateDepart.value;
+      travelTypeValue = travelType.value;
+      dateArrivalValue = dateArrival.value;
+      /*  countryValue = country.value; */
+      arrivalValue = arrival.value;
+      departValue = depart.value;
+    }
+
+    if (!e) {
+      cityValue = this.props.location.myCustomProps.arrival;
+      dateDepartValue = this.props.location.myCustomProps.dateDepart;
+      travelTypeValue = this.props.location.myCustomProps.travelType;
+      dateArrivalValue = this.props.location.myCustomProps.dateArrival;
+      /*  countryValue = country.value; */
+      arrivalValue = this.props.location.myCustomProps.arrival;
+      departValue = this.props.location.myCustomProps.depart;
+    }
+    // var departValue = depart.value;
+    // if (departValue == "") {
+    //   departValue = this.props.location.myCustomProps.depart;
+    // } else {
+    //   departValue = depart.value;
+    // }
+
+    console.log(`mi nuevo lugar de depart es : ${travelTypeValue}`);
     /* console.log(cityValue,countryValue) */
 
     if (cityValue && departValue) {
@@ -63,6 +104,7 @@ class App extends Component {
       /*  console.log(API_URL)
     console.log(data);  */
       /* console.log(this.state) */
+      departValue = "";
       if (travelTypeValue == 2) {
         this.setState({
           temperature: data.main.temp,
@@ -72,7 +114,7 @@ class App extends Component {
           city: data.name,
           country: data.sys.country,
           datos: datos,
-          datosRetour: datos1
+          datosRetour: datos1,
         });
       } else {
         this.setState({
@@ -83,12 +125,13 @@ class App extends Component {
           city: data.name,
           country: data.sys.country,
           datos: datos,
-          datosRetour: undefined
+          datosRetour: undefined,
         });
       }
     } else {
       this.setState({ error: "Ecrivez un ville et un pays" });
     }
+    console.log(`este es mi nuevo valor ${departValue}`);
   };
 
   render() {

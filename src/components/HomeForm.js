@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HomeForm = () => {
   const [input, setInput] = useState({
@@ -96,8 +97,17 @@ const HomeForm = () => {
             value={input.dateArrival}
           />
         </div>
-
-        <button className="btn btn-success btn-block">Voir les voyages</button>
+        <Link
+          to={{
+            pathname: "search",
+            myCustomProps: input,
+          }}
+        >
+          {" "}
+          <button className="btn btn-success btn-block">
+            Voir les voyages
+          </button>
+        </Link>
       </form>
     </div>
   );

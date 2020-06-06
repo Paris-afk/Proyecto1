@@ -6,7 +6,7 @@ import "./home.css";
 var sectionStyle = {
   height: "1000px",
 
-  backgroundImage: "url(" + fondo + ")"
+  backgroundImage: "url(" + fondo + ")",
 };
 class Home extends React.Component {
   render() {
