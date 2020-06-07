@@ -5,8 +5,8 @@ import styled from "styled-components";
 import "leaflet-routing-machine";
 
 const Wrapper = styled.div`
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 `;
 
 export default class Map extends React.Component {
@@ -23,7 +23,7 @@ export default class Map extends React.Component {
     this.map = L.map("map", {
       center: [46.589, 3.362],
       zoom: 4,
-      zoomControl: false
+      zoomControl: false,
     });
 
     L.tileLayer(
@@ -31,7 +31,7 @@ export default class Map extends React.Component {
       {
         maxZoom: 20,
         detectRetina: true,
-        maxNativeZoom: 17
+        maxNativeZoom: 17,
       }
     ).addTo(this.map);
     /*      var markerDep = new L.latLng(47.2226,-1.5223);
@@ -46,8 +46,8 @@ export default class Map extends React.Component {
       })
     }).addTo(this.map); */
     L.Routing.control({
-      waypoints: [L.latLng(57.74, 11.94), L.latLng(57.6792, 11.949)],
-      show: true
+      waypoints: [L.latLng(47.2226, -1.5223), L.latLng(48.8589, 2.3469)],
+      show: true,
     }).addTo(this.map);
   }
 
