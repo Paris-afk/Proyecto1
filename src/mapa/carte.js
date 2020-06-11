@@ -44,11 +44,12 @@ export default class Map extends React.Component {
         language: "fr",
         profile: "car"
       })
-    }).addTo(this.map); */
+    }).addTo(this.map); 
     L.Routing.control({
       waypoints: [L.latLng(47.2226, -1.5223), L.latLng(48.8589, 2.3469)],
       show: true,
     }).addTo(this.map);
+    */
   }
 
   render() {
