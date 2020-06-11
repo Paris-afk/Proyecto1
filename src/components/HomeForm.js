@@ -31,7 +31,7 @@ const HomeForm = () => {
             name="depart"
             id="depart"
             value={input.depart}
-            placeholder="Ecrivez la place de depart "
+            placeholder="Ecrivez la ville de depart "
             className="form-control"
           />
         </div>
@@ -43,7 +43,7 @@ const HomeForm = () => {
             type="text"
             name="arrival"
             id="arrival"
-            placeholder="ecrivez la place d'arrivée"
+            placeholder="ecrivez la ville d'arrivée"
             className="form-control"
           />
         </div>
@@ -87,7 +87,7 @@ const HomeForm = () => {
         }
 
         <div className="form-group">
-          <label htmlFor="">Arrival Date</label>
+          <label htmlFor="">Retour Date</label>
           <input
             onChange={handleChange}
             type="date"
