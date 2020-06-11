@@ -26,14 +26,14 @@ export default class Map extends React.Component {
       zoomControl: false,
     });
 
-    L.tileLayer(
+  /*  L.tileLayer(
       "https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
       {
         maxZoom: 20,
         detectRetina: true,
         maxNativeZoom: 17,
       }
-    ).addTo(this.map);
+    ).addTo(this.map); */
     /*      var markerDep = new L.latLng(47.2226,-1.5223);
         var markerDest = new L.latLng(48.8589,2.3469) */
 
